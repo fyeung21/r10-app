@@ -14,7 +14,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 
 import client from "./config/api";
-import AboutContainer from './screens/About';
+import AboutContainer from './screens/About/AboutContainer';
 
 const App = () => {
   return (

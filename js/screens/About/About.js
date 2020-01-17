@@ -1,11 +1,15 @@
 import React from "react";
-import { View } from "react-native";
+import { View, ScrollView } from "react-native";
 
 const About = () => {
     return (
-        <View>
-            Hello 2
-        </View>
+        <ScrollView>
+            <View>
+                <Text>
+                    R10 is a conference that focuses on just about any topic related to dev.
+                </Text>
+            </View>
+        </ScrollView>
     )
 }
 
