@@ -10,11 +10,8 @@ const GET_CONDUCT = gql`
         allConducts {
             id
             title
-            id
             description
-            title
             order
-            
         }
     }
 `;
@@ -27,7 +24,7 @@ function CodeOfConduct() {
 
     return (
         <View>
-            <Text>getting data</Text>
+            <About />
         </View>
     );
 }
@@ -35,7 +32,7 @@ function CodeOfConduct() {
 const AboutContainer = () => {
     return (
         <View>
-            <About />
+            <CodeOfConduct />
         </View>
     )
 }

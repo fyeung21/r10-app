@@ -9,10 +9,6 @@ import {
   StatusBar,
 } from 'react-native';
 
-import {
-  Colors
-} from 'react-native/Libraries/NewAppScreen';
-
 import client from "./config/api";
 import AboutContainer from './screens/About/AboutContainer';
 
@@ -38,7 +34,7 @@ const App = () => {
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: Colors.lighter,
+    backgroundColor: "white",
   }
 });
 
