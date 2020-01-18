@@ -22,7 +22,6 @@ const App = () => {
             contentInsetAdjustmentBehavior="automatic"
             style={styles.scrollView}>
             <View>
-              <Text>hello</Text>
               <AboutContainer />
             </View>
           </ScrollView>
