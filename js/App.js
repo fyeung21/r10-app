@@ -5,12 +5,11 @@ import {
   StyleSheet,
   ScrollView,
   View,
-  Text,
   StatusBar,
 } from 'react-native';
 
 import client from "./config/api";
-import AboutContainer from './screens/About/AboutContainer';
+import AppNavigator from "./navigation/RootStackNavigator";
 
 const App = () => {
   return (
@@ -22,7 +21,7 @@ const App = () => {
             contentInsetAdjustmentBehavior="automatic"
             style={styles.scrollView}>
             <View>
-              <AboutContainer />
+              <AppNavigator />
             </View>
           </ScrollView>
         </SafeAreaView>
