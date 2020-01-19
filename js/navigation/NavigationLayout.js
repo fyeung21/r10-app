@@ -1,18 +1,27 @@
-import React from 'react';
-import {
-    createStackNavigator,
-    createBottomTabNavigator
-} from 'react-navigation';
-import AboutContainer from '../screens/About';
+import { createStackNavigator } from 'react-navigation-stack';
+import { createBottomTabNavigator } from 'react-navigation-tabs';
+import AboutScreen from '../screens/About';
+import MapScreen from '../screens/Map';
+import ScheduleScreen from '../screens/Schedule';
+import FavesScreen from '../screens/Faves';
 
-const AboutStack = createStackNavigator({
-    About: <AboutContainer />
+const ScheduleStack = createStackNavigator({
+    Schedule: ScheduleScreen
 });
-
-// Dedicated stacks for Schedule and Faves will go here too!
+const MapStack = createStackNavigator({
+    Map: MapScreen
+});
+const FavesStack = createStackNavigator({
+    Faves: FavesScreen
+});
+const AboutStack = createStackNavigator({
+    About: AboutScreen
+});
 
 const TabNavigator = createBottomTabNavigator({
+    Schedule: ScheduleStack,
+    Map: MapStack,
+    Faves: FavesStack,
     About: AboutStack,
-    Settings: SettingsScreen,
 });
-export default createBottomTabNavigator(TabNavigator);
+export default TabNavigator;
