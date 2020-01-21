@@ -33,7 +33,7 @@ const About = () => {
                 {data.allConducts.map(data => {
                     return (
                         <CodeofConduct
-                            id={data.id}
+                            key={data.id}
                             title={data.title}
                             desc={data.description}
                             order={data.order} />

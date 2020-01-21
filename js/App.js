@@ -15,16 +15,16 @@ const App = () => {
   return (
     <>
       <ApolloProvider client={client}>
-        <StatusBar barStyle="dark-content" />
+        {/* <StatusBar barStyle="dark-content" />
         <SafeAreaView>
           <ScrollView
             contentInsetAdjustmentBehavior="automatic"
             style={styles.scrollView}>
-            <View>
-              <AppNavigator />
-            </View>
+            <View> */}
+        <AppNavigator />
+        {/* </View>
           </ScrollView>
-        </SafeAreaView>
+        </SafeAreaView> */}
       </ApolloProvider>
     </>
   );
