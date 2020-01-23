@@ -10,11 +10,13 @@ import {
 
 import client from "./config/api";
 import AppNavigator from "./navigation/RootStackNavigator";
+import FavesProvider from './context/FavesContext';
 
 const App = () => {
   return (
     <>
       <ApolloProvider client={client}>
+        {/* <FavesProvider> */}
         {/* <StatusBar barStyle="dark-content" />
         <SafeAreaView>
           <ScrollView
@@ -25,6 +27,7 @@ const App = () => {
         {/* </View>
           </ScrollView>
         </SafeAreaView> */}
+        {/* </FavesProvider> */}
       </ApolloProvider>
     </>
   );
