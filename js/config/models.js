@@ -1,29 +1,36 @@
 import AsyncStorage from '@react-native-community/async-storage';
 
-storeData = async () => {
+const storeData = async (key, obj) => {
     try {
-        const addFaveSession = await AsyncStorage.setItem("key", "value");
+        let value = JSON.stringify(obj);
+        const addFaveSession = await AsyncStorage.setItem(key, value);
+        console.log(addFaveSession);
     } catch (e) {
         throw e;
     }
-    console.log(addFaveSession);
 }
 
-getData = async () => {
+const getData = async (key) => {
     try {
-        const keys = await AsyncStorage.getAllKeys();
-        const values = await AsyncStorage.multiGet(keys);
-    } catch (e) {
-        // error reading value
-    }
-    console.log(values);
-}
-
-storeData = async () => {
-    try {
-        const removeFaveSession = await AsyncStorage.removeItem("key");
+        const user = await AsyncStorage.getItem(key);
+        const displayUser = JSON.parse(user);
+        return displayUser;
     } catch (e) {
         throw e;
     }
-    console.log(removeFaveSession);
+}
+
+const deleteData = async (key) => {
+    try {
+        const removeFaveSession = await AsyncStorage.removeItem(key);
+        console.log(removeFaveSession);
+    } catch (e) {
+        throw e;
+    }
+}
+
+export default {
+    storeData,
+    getData,
+    deleteData
 }
