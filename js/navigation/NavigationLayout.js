@@ -6,19 +6,40 @@ import ScheduleScreen from '../screens/Schedule';
 import MapScreen from '../screens/Map';
 import FavesScreen from '../screens/Faves';
 import AboutScreen from '../screens/About';
+import { sharedNavigationOptions } from './config';
 
 const ScheduleStack = createStackNavigator({
     Schedule: ScheduleScreen
-});
+},
+    {
+        defaultNavigationOptions: ({ navigation }) => ({
+            ...sharedNavigationOptions(navigation)
+        })
+    });
 const MapStack = createStackNavigator({
     Map: MapScreen
-});
+},
+    {
+        defaultNavigationOptions: ({ navigation }) => ({
+            ...sharedNavigationOptions(navigation)
+        })
+    });
 const FavesStack = createStackNavigator({
     Faves: FavesScreen
-});
+},
+    {
+        defaultNavigationOptions: ({ navigation }) => ({
+            ...sharedNavigationOptions(navigation)
+        })
+    });
 const AboutStack = createStackNavigator({
     About: AboutScreen
-});
+},
+    {
+        defaultNavigationOptions: ({ navigation }) => ({
+            ...sharedNavigationOptions(navigation)
+        })
+    });
 
 const TabNavigator = createBottomTabNavigator(
     {
@@ -29,15 +50,12 @@ const TabNavigator = createBottomTabNavigator(
     },
     {
         defaultNavigationOptions: ({ navigation }) => ({
-            tabBarIcon: ({ focused, horizontal, tintColor }) => {
+            tabBarIcon: ({ tintColor }) => {
                 const { routeName } = navigation.state;
                 let IconComponent = Ionicons;
                 let iconName;
                 if (routeName === 'Schedule') {
                     iconName = 'ios-calendar'
-                    // Sometimes we want to add badges to some icons.
-                    // You can check the implementation below.
-                    // IconComponent = HomeIconWithBadge;
                 } else if (routeName === 'Map') {
                     iconName = 'ios-map';
                 } else if (routeName === 'Faves') {
@@ -45,8 +63,6 @@ const TabNavigator = createBottomTabNavigator(
                 } else if (routeName === 'About') {
                     iconName = 'ios-information-circle';
                 }
-
-                // You can return any component that you like here!
                 return <IconComponent name={iconName} size={25} color={tintColor} />;
             },
         }),
@@ -60,7 +76,7 @@ const TabNavigator = createBottomTabNavigator(
             style: {
                 backgroundColor: "black"
             }
-        }
+        },
     }
 );
 export default TabNavigator;
