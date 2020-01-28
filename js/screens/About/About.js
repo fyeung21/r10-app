@@ -1,5 +1,5 @@
 import React from "react";
-import { View, ScrollView, Text } from "react-native";
+import { View, ScrollView, Text, StyleSheet } from "react-native";
 import CodeofConduct from "../../components/CodeofConduct/CodeofConduct";
 
 import { useQuery } from '@apollo/react-hooks';
@@ -25,7 +25,7 @@ const About = () => {
     return (
         <ScrollView>
             <View>
-                <Text>
+                <Text style={styles.heading}>
                     Code of Conduct heading h1
                 </Text>
             </View>
@@ -43,5 +43,12 @@ const About = () => {
         </ScrollView>
     )
 }
+
+const styles = StyleSheet.create({
+    heading: {
+        fontWeight: 'bold',
+        fontSize: 30,
+    }
+});
 
 export default About;
