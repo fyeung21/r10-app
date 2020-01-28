@@ -1,5 +1,5 @@
 import React from "react";
-import { View, ScrollView, Text, SectionList } from "react-native";
+import { View, ScrollView, Text, SectionList, Button } from "react-native";
 import ScheduleList from "../../components/ScheduleList/ScheduleList";
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from "apollo-boost";
@@ -77,6 +77,10 @@ const Schedule = () => {
                 renderSectionHeader={({ section: { title } }) => (
                     <Text>{title}</Text>
                 )}
+            />
+            <Button
+                title="Go to Single Session"
+                onPress={() => navigate('session')}
             />
         </View>
     )
