@@ -1,5 +1,5 @@
 import React from "react";
-import { View, ScrollView, Text } from "react-native";
+import { View, ScrollView, Text, Image, Button } from "react-native";
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from "apollo-boost";
 
@@ -32,15 +32,17 @@ const Session = () => {
                 </Text>
             </View>
             <View>
-                {/* {data.allConducts.map(data => {
-                    return (
-                        <CodeofConduct
-                            key={data.id}
-                            title={data.title}
-                            desc={data.description}
-                            order={data.order} />
-                    )
-                })} */}
+                <Text>{data.location}</Text>
+                <Text>{data.title}</Text>
+                <Text>{data.startTime}</Text>
+                <Text>{data.description}</Text>
+            </View>
+            <View>
+                <Text>Presented by:</Text>
+                <Image source={data.Image} />
+            </View>
+            <View>
+                {/* <Button>{'remove from faves'}</Button> */}
             </View>
         </ScrollView>
     )

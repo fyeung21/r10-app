@@ -1,6 +1,6 @@
 import React from "react";
-import { View, ScrollView, Text } from "react-native";
-import { useQuery } from '@apollo/react-hooks';
+import { View, ScrollView, Text, Image } from "react-native";
+import { useQuery } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
 
 const GET_SPEAKERS = gql`
@@ -32,17 +32,16 @@ const Speaker = () => {
                 </Text>
             </View>
             <View>
-                {/* {data.allConducts.map(data => {
-                    return (
-                        <CodeofConduct
-                            key={data.id}
-                            title={data.title}
-                            desc={data.description}
-                            order={data.order} />
-                    )
-                })} */}
+                <Image source={data.image} />
             </View>
-        </ScrollView>
+            <View>
+                <Text>{data.name}</Text>
+                <Text>{data.bio}</Text>
+            </View>
+            <View>
+                <Text>{data.url}</Text>
+            </View>
+        </ScrollView >
     )
 }
 

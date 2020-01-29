@@ -52,12 +52,7 @@ const SessionStack = createStackNavigator({
     });
 const SpeakerStack = createStackNavigator({
     Speaker: SpeakerScreen
-},
-    {
-        defaultNavigationOptions: ({ navigation }) => ({
-            ...sharedNavigationOptions(navigation)
-        })
-    });
+});
 
 const TabNavigator = createBottomTabNavigator(
     {
