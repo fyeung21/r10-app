@@ -1,5 +1,5 @@
 import React from "react";
-import { View, ScrollView, Text, StyleSheet } from "react-native";
+import { View, ScrollView, Text, StyleSheet, Image } from "react-native";
 import CodeofConduct from "../../components/CodeofConduct/CodeofConduct";
 
 import { useQuery } from '@apollo/react-hooks';
@@ -24,6 +24,9 @@ const About = () => {
 
     return (
         <ScrollView>
+            <View>
+                <Image source={require("../../assets/images/r10_logo.png")} />
+            </View>
             <View>
                 <Text style={styles.heading}>
                     Code of Conduct heading h1

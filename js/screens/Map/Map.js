@@ -1,5 +1,5 @@
 import React from "react";
-import { View, ScrollView, Text } from "react-native";
+import { View, ScrollView, Text, Image } from "react-native";
 
 const Map = () => {
     return (
@@ -8,6 +8,7 @@ const Map = () => {
                 <Text>
                     Map
                 </Text>
+                <Image source={require("../../assets/images/map_pin.png")} />
             </View>
         </ScrollView>
     )
