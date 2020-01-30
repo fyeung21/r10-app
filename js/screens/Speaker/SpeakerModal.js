@@ -18,7 +18,7 @@ const GET_SPEAKERS = gql`
     }
 `;
 
-const Speaker = () => {
+const SpeakerModal = () => {
     const { loading, error, data } = useQuery(GET_SPEAKERS);
 
     if (loading) return <Text>Loading</Text>;
@@ -45,4 +45,4 @@ const Speaker = () => {
     )
 }
 
-export default Speaker;
+export default SpeakerModal;

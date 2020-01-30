@@ -3,6 +3,7 @@ import { View, ScrollView, Text, SectionList, Button } from "react-native";
 import ScheduleList from "../../components/ScheduleList/ScheduleList";
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from "apollo-boost";
+import { withNavigation } from "react-navigation";
 
 const GET_SESSIONS = gql`
     query {
@@ -57,7 +58,7 @@ const groupByStartTime = (sessions) => {
 };
 
 
-const Schedule = () => {
+const Schedule = ({ navigation }) => {
     const { loading, error, data } = useQuery(GET_SESSIONS);
 
     if (loading) return <Text>Loading</Text>;
@@ -80,10 +81,10 @@ const Schedule = () => {
             />
             <Button
                 title="Go to Single Session"
-                onPress={() => navigate('session')}
+                onPress={() => navigation.push('Session')}
             />
         </View>
     )
 }
 
-export default Schedule;
+export default withNavigation(Schedule);

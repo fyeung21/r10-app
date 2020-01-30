@@ -11,7 +11,9 @@ import SpeakerScreen from '../screens/Speaker';
 import { sharedNavigationOptions } from './config';
 
 const ScheduleStack = createStackNavigator({
-    Schedule: ScheduleScreen
+    Schedule: ScheduleScreen,
+    Session: SessionScreen,
+    Speaker: SpeakerScreen
 },
     {
         defaultNavigationOptions: ({ navigation }) => ({
@@ -27,7 +29,8 @@ const MapStack = createStackNavigator({
         })
     });
 const FavesStack = createStackNavigator({
-    Faves: FavesScreen
+    Faves: FavesScreen,
+    Session: SessionScreen,
 },
     {
         defaultNavigationOptions: ({ navigation }) => ({
@@ -42,26 +45,13 @@ const AboutStack = createStackNavigator({
             ...sharedNavigationOptions(navigation)
         })
     });
-const SessionStack = createStackNavigator({
-    Session: SessionScreen
-},
-    {
-        defaultNavigationOptions: ({ navigation }) => ({
-            ...sharedNavigationOptions(navigation)
-        })
-    });
-const SpeakerStack = createStackNavigator({
-    Speaker: SpeakerScreen
-});
 
 const TabNavigator = createBottomTabNavigator(
     {
         Schedule: ScheduleStack,
         Map: MapStack,
         Faves: FavesStack,
-        About: AboutStack,
-        Session: SessionStack,
-        Speaker: SpeakerStack
+        About: AboutStack
     },
     {
         defaultNavigationOptions: ({ navigation }) => ({

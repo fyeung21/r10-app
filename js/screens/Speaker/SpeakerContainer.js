@@ -1,11 +1,11 @@
 import React from "react";
 import { View } from "react-native";
-import Speaker from "./Speaker";
+import SpeakerModal from "./SpeakerModal";
 
 const SpeakerContainer = () => {
     return (
         <View>
-            <Speaker />
+            <SpeakerModal />
         </View>
     )
 }
