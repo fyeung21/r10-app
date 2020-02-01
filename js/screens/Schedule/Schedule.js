@@ -81,7 +81,7 @@ const Schedule = ({ navigation }) => {
             />
             <Button
                 title="Go to Single Session"
-                onPress={() => navigation.push('Session')}
+                onPress={() => navigation.navigate('Session')}
             />
         </View>
     )

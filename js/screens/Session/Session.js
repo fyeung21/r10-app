@@ -5,24 +5,36 @@ import { gql } from "apollo-boost";
 import { withNavigation } from "react-navigation";
 
 const GET_SESSION = gql`
-    query {
-        Session(id:"cjh2j37mo163p01221qpcklry"){
+    query SessionQuery ($id: ID!) {
+        Session(id: $id){
             id
             description
             location
             startTime
             speaker {
               id
+              name
+              image
             }
         }
     }
 `;
 
 const Session = ({ navigation }) => {
-    const { loading, error, data } = useQuery(GET_SESSION);
-    const { title, location, description, startTime } = data.Session
+    const { loading, error, data } = useQuery(GET_SESSION, {
+        variables: { id: "cjh2j37mo163p01221qpcklry" }
+    });
+
+
     if (loading) return <Text>Loading</Text>;
-    if (error) return <Text>Error</Text>;
+    if (error) {
+        console.log(JSON.stringify(error))
+        return <Text>Error</Text>;
+    }
+
+    const { location, description, startTime } = data.Session
+
+    const { name, image } = data.Session.speaker
 
     return (
         <ScrollView>
@@ -32,19 +44,19 @@ const Session = ({ navigation }) => {
                 </Text>
             </View>
             <View>
-                <Text>{title}</Text>
-                {/* <Text>{data.title}</Text>
-                <Text>{data.startTime}</Text>
-                <Text>{data.description}</Text> */}
+                <Text>{location}</Text>
+                <Text>{startTime}</Text>
+                <Text>{description}</Text>
             </View>
             <View>
-                <Text>Presented by:</Text>
-                <Image source={data.Image} />
+                <Text>Presented by:{name}</Text>
+                <Image source={{ uri: image }} />
+                {/* image doesnt show */}
             </View>
             <View>
                 <Button
                     title="go to speakerModal"
-                    onPress={() => navigation.push('Speaker')}
+                    onPress={() => navigation.navigate('Speaker')}
                 />
             </View>
         </ScrollView>
