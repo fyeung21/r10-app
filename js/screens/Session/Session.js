@@ -1,8 +1,10 @@
-import React from "react";
-import { View, ScrollView, Text, Image, Button } from "react-native";
+import React, { useState } from "react";
+import { View, ScrollView, Text, Image, Button, Modal } from "react-native";
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from "apollo-boost";
 import { withNavigation } from "react-navigation";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import SpeakerContainer from "../Speaker";
 
 const GET_SESSION = gql`
     query SessionQuery ($id: ID!) {
@@ -36,6 +38,8 @@ const Session = ({ navigation }) => {
 
     const { name, image } = data.Session.speaker
 
+    const [visible, setVisible] = useState(false)
+
     return (
         <ScrollView>
             <View>
@@ -49,9 +53,13 @@ const Session = ({ navigation }) => {
                 <Text>{description}</Text>
             </View>
             <View>
-                <Text>Presented by:{name}</Text>
-                <Image source={{ uri: image }} />
-                {/* image doesnt show */}
+                <TouchableOpacity onPress={() => {
+                    setVisible(true)
+                }}>
+                    <Text>Presented by:{name}</Text>
+                    <Image source={{ uri: image }} />
+                    {/* image doesnt show */}
+                </TouchableOpacity>
             </View>
             <View>
                 <Button
@@ -59,6 +67,23 @@ const Session = ({ navigation }) => {
                     onPress={() => navigation.navigate('Speaker')}
                 />
             </View>
+            <Modal
+                animationType="slide"
+                transparent={false}
+                visible={visible}
+                onRequestClose={() => {
+                    Alert.alert('Modal closed.');
+                }}>
+                <View style={{ marginTop: 200, backgroundColor: '#000' }}>
+                    <TouchableOpacity
+                        onPress={() => {
+                            setVisible(!visible);
+                        }}>
+                        <Text>Hide Modal text text fgnljagajdlfklks</Text>
+                    </TouchableOpacity>
+                    <SpeakerContainer />
+                </View>
+            </Modal>
         </ScrollView>
     )
 }
