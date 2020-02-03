@@ -1,7 +1,8 @@
 import React from "react";
-import { View, ScrollView, Text, Image, Button, Linking } from "react-native";
+import { View, ScrollView, Text, Image, Button, Linking, StyleSheet } from "react-native";
 import { useQuery } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
+import globalStyles from "../../globalStyles";
 
 const GET_SPEAKER = gql`
     query SpeakerQuery ($id: ID!) {
@@ -27,16 +28,13 @@ const SpeakerModal = () => {
 
     return (
         <ScrollView>
-            <Text>
-                About the Speaker
-                </Text>
             <View style={{ backgroundColor: "#fff" }}>
                 <View>
                     <Image source={{ uri: image }} />
                 </View>
-                <View>
-                    <Text>{name}</Text>
-                    <Text>{bio}</Text>
+                <View style={styles.textContainer}>
+                    <Text style={styles.heading}>{name}</Text>
+                    <Text style={globalStyles.body}>{bio}</Text>
                 </View>
                 <View>
                     <Button
@@ -48,5 +46,19 @@ const SpeakerModal = () => {
         </ScrollView>
     )
 }
+
+const styles = StyleSheet.create({
+    heading: {
+        fontFamily: "Montserrat",
+        fontSize: 32,
+        marginVertical: 10,
+        textAlign: "center"
+    },
+    textContainer: {
+        backgroundColor: "#fff",
+        marginHorizontal: 10,
+        borderRadius: 5
+    }
+});
 
 export default SpeakerModal;
