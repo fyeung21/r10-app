@@ -1,7 +1,7 @@
 import React from "react";
 import { View, ScrollView, Text, StyleSheet, Image } from "react-native";
+import globalStyles from "../../globalStyles";
 import CodeofConduct from "../../components/CodeofConduct/CodeofConduct";
-
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from "apollo-boost";
 
@@ -23,13 +23,24 @@ const About = () => {
     if (error) return <Text>Error</Text>;
 
     return (
-        <ScrollView>
+        <ScrollView style={globalStyles.container}>
+            <View style={styles.imageContainer}>
+                <Image style={styles.image} source={require("../../assets/images/r10_logo.png")} />
+            </View>
             <View>
-                <Image source={require("../../assets/images/r10_logo.png")} />
+                <Text style={globalStyles.body}>
+                    R10 is a conference thats focuses on just any topic related to dev.
+                </Text>
+                <Text style={styles.heading}>
+                    Date & Venue
+                </Text>
+                <Text style={globalStyles.body}>
+                    The R10 conference will take place on Tuesday, June 27, 2017 in Vancouver, BC.
+                </Text>
             </View>
             <View>
                 <Text style={styles.heading}>
-                    Code of Conduct heading h1
+                    Code of Conduct
                 </Text>
             </View>
             <View>
@@ -49,8 +60,19 @@ const About = () => {
 
 const styles = StyleSheet.create({
     heading: {
-        fontWeight: 'bold',
-        fontSize: 30,
+        fontFamily: "Montserrat",
+        fontSize: 32,
+        marginVertical: 10
+    },
+    imageContainer: {
+        borderBottomWidth: 1,
+        borderBottomColor: "#e6e6e6"
+    },
+    image: {
+        marginLeft: 100,
+        marginVertical: 30,
+        height: 50,
+        resizeMode: 'contain'
     }
 });
 

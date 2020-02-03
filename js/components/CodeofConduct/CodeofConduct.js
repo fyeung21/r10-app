@@ -28,12 +28,18 @@ const CodeofConduct = (data) => {
 }
 const styles = StyleSheet.create({
     heading: {
-        fontSize: 30,
+        fontFamily: "Montserrat",
+        fontSize: 24,
+        color: "#9963EA",
+        marginVertical: 10,
     },
     body: {
-        marginVertical: 10,
-        marginHorizontal: 5
-    },
+        fontFamily: "Montserrat-Light",
+        fontSize: 20,
+        lineHeight: 28,
+        marginHorizontal: 5,
+        marginVertical: 10
+    }
 });
 
 export default CodeofConduct;
