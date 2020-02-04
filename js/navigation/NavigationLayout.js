@@ -79,7 +79,9 @@ const TabNavigator = createBottomTabNavigator(
                 fontFamily: 'Montserrat'
             },
             style: {
-                backgroundColor: "black"
+                backgroundColor: "#000",
+                height: 60,
+                paddingTop: 10
             }
         },
     }
