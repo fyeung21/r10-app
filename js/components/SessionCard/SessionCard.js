@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 
-const ScheduleList = ({ item }) => {
+const SessionCard = ({ item }) => {
     return (
         <View>
             <Text>{item}</Text>
@@ -9,4 +9,4 @@ const ScheduleList = ({ item }) => {
     );
 }
 
-export default ScheduleList;
+export default SessionCard;

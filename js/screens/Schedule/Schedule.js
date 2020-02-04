@@ -1,6 +1,6 @@
 import React from "react";
-import { View, ScrollView, Text, SectionList, Button } from "react-native";
-import ScheduleList from "../../components/ScheduleList/ScheduleList";
+import { View, ScrollView, Text, SectionList, Button, StyleSheet } from "react-native";
+import SessionCard from "../../components/SessionCard/SessionCard";
 import { useQuery } from '@apollo/react-hooks';
 import { gql } from "apollo-boost";
 import { withNavigation } from "react-navigation";
@@ -76,7 +76,7 @@ const Schedule = ({ navigation }) => {
                 keyExtractor={(item, index) => item + index}
                 renderItem={({ item }) => <Text>{item}</Text>}
                 renderSectionHeader={({ section: { title } }) => (
-                    <Text>{title}</Text>
+                    <Text style={styles.sectionTitle}>{title}</Text>
                 )}
             />
             <Button
@@ -86,5 +86,12 @@ const Schedule = ({ navigation }) => {
         </View>
     )
 }
+const styles = StyleSheet.create({
+    sectionTitle: {
+        fontFamily: "Montserrat",
+        fontSize: 20,
+        backgroundColor: "lightgrey"
+    }
+});
 
 export default withNavigation(Schedule);
