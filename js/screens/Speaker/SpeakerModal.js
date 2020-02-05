@@ -1,5 +1,5 @@
 import React from "react";
-import { View, ScrollView, Text, Image, Button, Linking, StyleSheet } from "react-native";
+import { View, ScrollView, Text, Image, TouchableOpacity, Linking, StyleSheet } from "react-native";
 import { useQuery } from "@apollo/react-hooks";
 import { gql } from "apollo-boost";
 import globalStyles from "../../globalStyles";
@@ -28,19 +28,16 @@ const SpeakerModal = () => {
 
     return (
         <ScrollView>
-            <View style={{ backgroundColor: "#fff" }}>
-                <View>
-                    <Image source={{ uri: image }} />
-                </View>
+            <View>
                 <View style={styles.textContainer}>
+                    <Image style={styles.image} source={{ uri: image }} />
                     <Text style={styles.heading}>{name}</Text>
                     <Text style={globalStyles.body}>{bio}</Text>
-                </View>
-                <View>
-                    <Button
-                        title="go to wiki bio"
-                        onPress={() => Linking.openURL(url)}
-                    />
+                    <TouchableOpacity
+                        style={globalStyles.btn}
+                        onPress={() => Linking.openURL(url)}>
+                        <Text style={globalStyles.btnText}>Read More on Wikipedia</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
         </ScrollView>
@@ -48,16 +45,25 @@ const SpeakerModal = () => {
 }
 
 const styles = StyleSheet.create({
+    textContainer: {
+        backgroundColor: "#fff",
+        paddingHorizontal: 15,
+        marginHorizontal: 15,
+        marginVertical: 10,
+        borderRadius: 10
+    },
     heading: {
         fontFamily: "Montserrat",
         fontSize: 32,
         marginVertical: 10,
         textAlign: "center"
     },
-    textContainer: {
-        backgroundColor: "#fff",
-        marginHorizontal: 10,
-        borderRadius: 5
+    image: {
+        height: 135,
+        width: 135,
+        borderRadius: 70,
+        marginHorizontal: 115,
+        marginTop: 30
     }
 });
 
