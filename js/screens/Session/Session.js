@@ -26,7 +26,8 @@ const Session = ({ navigation }) => {
     const { loading, error, data } = useQuery(GET_SESSION, {
         variables: { id: "cjh2j37mo163p01221qpcklry" }
     });
-
+    const [visible, setVisible] = useState(false);
+    const toggleModal = () => setVisible(!visible);
 
     if (loading) return <Text>Loading</Text>;
     if (error) {
@@ -35,12 +36,7 @@ const Session = ({ navigation }) => {
     }
 
     const { location, description, startTime } = data.Session
-
     const { name, image } = data.Session.speaker
-
-    const [visible, setVisible] = useState(false);
-
-    const toggleModal = () => setVisible(!visible);
 
     return (
         <ScrollView>
