@@ -1,10 +1,13 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, TouchableOpacity, StyleSheet } from 'react-native';
 
-const SessionCard = ({ item }) => {
+const SessionCard = ({ id, title, location }) => {
     return (
         <View>
-            <Text>{item}</Text>
+            {/* <TouchableOpacity onPress={toggleModal}> */}
+            <Text>{title}</Text>
+            <Text>{location}</Text>
+            {/* </TouchableOpacity> */}
         </View>
     );
 }
