@@ -20,14 +20,17 @@ const GET_SESSION = gql`
               id
               name
               image
+              bio
+              url
             }
         }
     }
 `;
 
 const Session = ({ navigation }) => {
+    const id = navigation.getParam('id')
     const { loading, error, data } = useQuery(GET_SESSION, {
-        variables: { id: "cjh2j37mo163p01221qpcklry" }
+        variables: { id }
     });
     const [visible, setVisible] = useState(false);
     const toggleModal = () => setVisible(!visible);
@@ -39,7 +42,7 @@ const Session = ({ navigation }) => {
     }
 
     const { title, location, description, startTime } = data.Session
-    const { name, image } = data.Session.speaker
+    const { name, image, bio, url } = data.Session.speaker
 
     return (
         <ScrollView style={styles.sessionCont}>
@@ -61,7 +64,7 @@ const Session = ({ navigation }) => {
             <View>
                 <TouchableOpacity
                     style={globalStyles.btn}
-                    onPress={() => navigation.navigate('Speaker')}>
+                    onPress={() => navigation.navigate('Speaker', { id })}>
                     <Text style={globalStyles.btnText}>Remove from Faves</Text>
                 </TouchableOpacity>
             </View>
@@ -76,7 +79,7 @@ const Session = ({ navigation }) => {
                         </TouchableOpacity>
                         <Text style={styles.modalTitle}>About the Speaker</Text>
                     </View>
-                    <SpeakerModal />
+                    <SpeakerModal name={name} bio={bio} image={image} url={url} />
                 </View>
             </Modal>
         </ScrollView>

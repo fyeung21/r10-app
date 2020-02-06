@@ -12,6 +12,33 @@ const globalStyles = StyleSheet.create({
         marginBottom: 40,
         lineHeight: 28
     },
+    greyHeading: {
+        color: "grey",
+        fontSize: 20,
+        fontFamily: "Montserrat-Regular"
+    },
+    borderBottomCont: {
+        borderBottomColor: "lightgrey",
+        borderBottomWidth: 1
+    },
+    sessionCardCont: {
+        marginHorizontal: 10,
+        marginVertical: 10
+    },
+    sessionCardTitle: {
+        fontFamily: "Montserrat",
+        fontSize: 20,
+        marginBottom: 10
+    },
+    sectionTitleCont: {
+        backgroundColor: "lightgrey"
+    },
+    sectionTitle: {
+        fontFamily: "Montserrat",
+        fontSize: 20,
+        marginHorizontal: 10,
+        marginVertical: 5
+    },
     btn: {
         color: "#fff",
         backgroundColor: "#9963ea",
