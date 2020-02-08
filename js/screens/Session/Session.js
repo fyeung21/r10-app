@@ -39,9 +39,9 @@ const Session = ({ navigation }) => {
 
     const { faveIds, addFaveSession, removeFaveSession } = useContext(FavesContext)
 
-    const addToFave = (currentSession) => addFaveSession(currentSession)
+    const addToFaves = (currentSession) => addFaveSession(currentSession)
 
-    const removeFromFave = (currentSession) => removeFaveSession(currentSession)
+    const removeFromFaves = (currentSession) => removeFaveSession(currentSession)
 
     if (loading) return <Text>Loading</Text>
     if (error) {
@@ -80,13 +80,13 @@ const Session = ({ navigation }) => {
                 {faveIds && faveIds.includes(sessionId) ? (
                     <TouchableOpacity
                         style={globalStyles.btn}
-                        onPress={() => removeFromFave(sessionId)}>
+                        onPress={() => removeFromFaves(sessionId)}>
                         <Text style={globalStyles.btnText}>Remove from Faves</Text>
                     </TouchableOpacity>
                 ) : (
                         <TouchableOpacity
                             style={globalStyles.btn}
-                            onPress={() => addToFave(sessionId)}>
+                            onPress={() => addToFaves(sessionId)}>
                             <Text style={globalStyles.btnText}>Add to Faves</Text>
                         </TouchableOpacity>)}
             </View>

@@ -7,7 +7,11 @@ import Icon from 'react-native-vector-icons/Ionicons'
 
 
 const SessionCard = ({ id, title, location, navigation }) => {
-    const { faveIds } = useContext(FavesContext)
+    const { faveIds, addFaveSession, removeFaveSession } = useContext(FavesContext)
+
+    const addToFaves = (currentSession) => addFaveSession(currentSession)
+
+    const removeFromFaves = (currentSession) => removeFaveSession(currentSession)
 
     return (
         <View style={globalStyles.borderBottomCont}>
@@ -17,8 +21,13 @@ const SessionCard = ({ id, title, location, navigation }) => {
                     <View>
                         <Text style={globalStyles.greyHeading}>{location}</Text>
                         {faveIds && faveIds.includes(id) ? (
-                            <Icon name="ios-heart" size={20} color={"red"} />
-                        ) : (<Icon name="ios-heart-empty" size={20} />)}
+                            <TouchableOpacity onPress={() => removeFromFaves(id)}>
+                                <Icon name="ios-heart" size={20} color={"red"} />
+                            </TouchableOpacity>
+                        ) : (
+                                <TouchableOpacity onPress={() => addToFaves(id)}>
+                                    <Icon name="ios-heart-empty" size={20} />
+                                </TouchableOpacity>)}
                     </View>
                 </TouchableOpacity>
             </View>
