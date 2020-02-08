@@ -1,38 +1,62 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import { useEffect, useContext, useState } from "react";
+import AsyncStorage from '@react-native-community/async-storage';
+
+const FavesContext = createContext();
 
 const FavesProvider = ({ children }) => {
-    const FavesProviderContext = useContext(FavesProviderContext);
+    // const FavesProviderContext = useContext(FavesProviderContext);
 
-    const [faveIds, setFaveIds] = useState([])
+    const [faveIds, setFaveIds] = useState(false)
 
-    const addFaveIds = () => {
-        setFaveIds([...faveIds])
+    const displayFaves = async () => {
+        const getFaveKeys = await getFaves()
+        setFaveIds(getFaveKeys)
     }
 
     useEffect(() => {
-        (async () => {
-            await models.storeData('fave', '8');
-            const response = await models.getData('fave');
-            setAnswer(response);
-        })
+        displayFaves()
     }, [])
 
-    // addFaveSession({sessionId}) => {
+    const getFaves = async () => {
+        const allKeys = await AsyncStorage.getAllKeys();
+        const results = await AsyncStorage.multiGet(allKeys);
 
-    // }
+        return results.filter(item => item[1] === 'true').map(item => item[0]);
+    }
 
-    // removeFaveSession({sessionId}) => {
+    addFaveSession = async sessionId => {
+        try {
+            await AsyncStorage.setItem(sessionId, 'true');
+        } catch (e) {
+            console.log(e);
+        }
+        displayFaves()
+    }
 
-    // }
+    removeFaveSession = async sessionId => {
+        try {
+            await AsyncStorage.setItem(sessionId, 'false');
+        } catch (e) {
+            console.log(e);
+        }
+        displayFaves()
+    }
 
-    // Add addFaveSession removeFavesession methods to provider. methods should have a sessionId param
+    getFaveSession = async sessionId => {
+        try {
+            return 'true' === await AsyncStorage.getItem(sessionId);
+        } catch (e) {
+            console.log(e);
+        }
+    }
 
     return (
-        <FavesContext.Provider value={addFaveIds}>
+        <FavesContext.Provider value={{ faveIds, addFaveSession, removeFaveSession }}>
             {children}
         </FavesContext.Provider>
     );
 
 }
+export { FavesContext };
 export default FavesProvider;

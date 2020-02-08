@@ -9,7 +9,7 @@ const Faves = () => {
                 <Text>
                     Faves
                 </Text>
-                <AsyncStorage />
+                {/* <AsyncStorage /> */}
             </View>
         </ScrollView>
     )

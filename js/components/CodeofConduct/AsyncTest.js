@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text } from 'react-native';
 import models from '../../config/models';
+// import FavesProvider from '../../context/FavesContext';
+// import FavesConsumer from '../../context';
 
 export const AsyncStorage = () => {
     const [answer, setAnswer] = useState();
@@ -15,6 +17,7 @@ export const AsyncStorage = () => {
         <View>
             <Text>AsyncStorage</Text>
             <Text>My fav is: {answer}</Text>
+            <Text>{getFaves}</Text>
         </View>
     );
 };
