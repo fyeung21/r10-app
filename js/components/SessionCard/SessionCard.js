@@ -18,7 +18,7 @@ const SessionCard = ({ id, title, location, navigation }) => {
             <View style={globalStyles.sessionCardCont}>
                 <TouchableOpacity onPress={() => navigation.push('Session', { id })}>
                     <Text style={globalStyles.sessionCardTitle}>{title}</Text>
-                    <View>
+                    <View style={globalStyles.flex}>
                         <Text style={globalStyles.greyHeading}>{location}</Text>
                         {faveIds && faveIds.includes(id) ? (
                             <TouchableOpacity onPress={() => removeFromFaves(id)}>

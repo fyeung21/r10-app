@@ -60,7 +60,7 @@ const Session = ({ navigation }) => {
     return (
         <ScrollView style={styles.sessionCont}>
             <View>
-                <View>
+                <View style={globalStyles.flex}>
                     <Text style={styles.greyHeading}>{location}</Text>
                     {faveIds && faveIds.includes(sessionId) ? (
                         <Icon name="ios-heart" size={20} color={"red"} />

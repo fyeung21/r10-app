@@ -12,6 +12,11 @@ const globalStyles = StyleSheet.create({
         marginBottom: 40,
         lineHeight: 28
     },
+    flex: {
+        display: "flex",
+        flexDirection: "row",
+        justifyContent: "space-between"
+    },
     greyHeading: {
         color: "grey",
         fontSize: 20,
