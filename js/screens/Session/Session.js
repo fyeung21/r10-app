@@ -9,6 +9,7 @@ import Icon from 'react-native-vector-icons/Ionicons'
 import { SpeakerModal } from "../Speaker"
 import globalStyles from "../../globalStyles"
 import styles from "./styles"
+import timeFormatHelper from "../../components/helpers/timeFormatHelper"
 
 const GET_SESSION = gql`
     query SessionQuery ($id: ID!) {
@@ -54,6 +55,8 @@ const Session = ({ navigation }) => {
 
     const sessionId = data.Session.id
 
+    const formattedTime = timeFormatHelper(startTime)
+
     return (
         <ScrollView style={styles.sessionCont}>
             <View>
@@ -64,7 +67,7 @@ const Session = ({ navigation }) => {
                     ) : (<Icon name="ios-heart-empty" size={20} />)}
                 </View>
                 <Text style={styles.title}>{title}</Text>
-                <Text style={styles.startTime}>{startTime}</Text>
+                <Text style={styles.startTime}>{formattedTime}</Text>
                 <Text style={globalStyles.body}>{description}</Text>
             </View>
             <View>

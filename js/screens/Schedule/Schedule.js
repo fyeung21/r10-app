@@ -27,6 +27,8 @@ const Schedule = () => {
     if (data)
         console.log(formatSessionData(data.allSessions), null, 2);
 
+    console.log(data.allSessions);
+
     const groupedSessions = formatSessionData(data.allSessions)
     return (
         <View>
