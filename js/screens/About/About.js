@@ -1,9 +1,9 @@
-import React from "react";
-import { View, ScrollView, Text, StyleSheet, Image } from "react-native";
-import globalStyles from "../../globalStyles";
-import CodeofConduct from "../../components/CodeofConduct/CodeofConduct";
-import { useQuery } from '@apollo/react-hooks';
-import { gql } from "apollo-boost";
+import React from "react"
+import { View, ScrollView, Text, StyleSheet, Image } from "react-native"
+import globalStyles from "../../globalStyles"
+import CodeofConduct from "../../components/CodeofConduct/CodeofConduct"
+import { useQuery } from '@apollo/react-hooks'
+import { gql } from "apollo-boost"
 
 const GET_CONDUCT = gql`
     query {
@@ -14,13 +14,13 @@ const GET_CONDUCT = gql`
             order
         }
     }
-`;
+`
 
 const About = () => {
-    const { loading, error, data } = useQuery(GET_CONDUCT);
+    const { loading, error, data } = useQuery(GET_CONDUCT)
 
-    if (loading) return <Text>Loading</Text>;
-    if (error) return <Text>Error</Text>;
+    if (loading) return <Text>Loading</Text>
+    if (error) return <Text>Error</Text>
 
     return (
         <ScrollView style={globalStyles.container}>
@@ -74,6 +74,6 @@ const styles = StyleSheet.create({
         height: 50,
         resizeMode: 'contain'
     }
-});
+})
 
-export default About;
+export default About

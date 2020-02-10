@@ -32,7 +32,7 @@ const SessionCard = ({ id, title, location, navigation }) => {
                 </TouchableOpacity>
             </View>
         </View>
-    );
+    )
 }
 
 export default withNavigation(SessionCard)

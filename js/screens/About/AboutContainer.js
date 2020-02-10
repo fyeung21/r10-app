@@ -1,6 +1,6 @@
-import React from "react";
-import { View } from "react-native";
-import About from "./About";
+import React from "react"
+import { View } from "react-native"
+import About from "./About"
 
 const AboutContainer = () => {
     return (
@@ -10,4 +10,4 @@ const AboutContainer = () => {
     )
 }
 
-export default AboutContainer;
+export default AboutContainer

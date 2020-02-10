@@ -59,6 +59,6 @@ const styles = StyleSheet.create({
         fontFamily: "Montserrat-Regular",
         marginHorizontal: 70
     }
-});
+})
 
 export default styles

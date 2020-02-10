@@ -17,15 +17,15 @@ const GET_SESSIONS = gql`
             location
         }
     }
-`;
+`
 
 const Faves = () => {
     const { loading, error, data } = useQuery(GET_SESSIONS)
 
     const { faveIds } = useContext(FavesContext)
 
-    if (loading) return <Text>Loading</Text>;
-    if (error) return <Text>Error</Text>;
+    if (loading) return <Text>Loading</Text>
+    if (error) return <Text>Error</Text>
 
     const filterFaves = data.allSessions.filter(data => faveIds.includes(data.id))
 

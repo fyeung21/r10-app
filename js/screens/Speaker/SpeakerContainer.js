@@ -1,6 +1,6 @@
-import React from "react";
-import { View } from "react-native";
-import SpeakerModal from "./SpeakerModal";
+import React from "react"
+import { View } from "react-native"
+import SpeakerModal from "./SpeakerModal"
 
 const SpeakerContainer = () => {
     return (
@@ -10,4 +10,4 @@ const SpeakerContainer = () => {
     )
 }
 
-export default SpeakerContainer;
+export default SpeakerContainer

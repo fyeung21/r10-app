@@ -1,5 +1,5 @@
-import FavesContainer from "./FavesContainer";
-import Faves from "./Faves";
+import FavesContainer from "./FavesContainer"
+import Faves from "./Faves"
 
-export { Faves };
-export default FavesContainer;
+export { Faves }
+export default FavesContainer

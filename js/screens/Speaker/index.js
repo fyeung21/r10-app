@@ -1,5 +1,5 @@
-import SpeakerContainer from "./SpeakerContainer";
-import SpeakerModal from "./SpeakerModal";
+import SpeakerContainer from "./SpeakerContainer"
+import SpeakerModal from "./SpeakerModal"
 
-export { SpeakerModal };
-export default SpeakerContainer;
+export { SpeakerModal }
+export default SpeakerContainer

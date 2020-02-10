@@ -1,11 +1,10 @@
-import React, { createContext } from 'react';
-import { useEffect, useContext, useState } from "react";
-import AsyncStorage from '@react-native-community/async-storage';
+import React, { createContext } from 'react'
+import { useEffect, useState } from "react"
+import AsyncStorage from '@react-native-community/async-storage'
 
-const FavesContext = createContext();
+const FavesContext = createContext()
 
 const FavesProvider = ({ children }) => {
-    // const FavesProviderContext = useContext(FavesProviderContext);
 
     const [faveIds, setFaveIds] = useState(false)
 
@@ -19,35 +18,35 @@ const FavesProvider = ({ children }) => {
     }, [])
 
     const getFaves = async () => {
-        const allKeys = await AsyncStorage.getAllKeys();
-        const results = await AsyncStorage.multiGet(allKeys);
+        const allKeys = await AsyncStorage.getAllKeys()
+        const results = await AsyncStorage.multiGet(allKeys)
 
-        return results.filter(item => item[1] === 'true').map(item => item[0]);
+        return results.filter(item => item[1] === 'true').map(item => item[0])
     }
 
     addFaveSession = async sessionId => {
         try {
-            await AsyncStorage.setItem(sessionId, 'true');
+            await AsyncStorage.setItem(sessionId, 'true')
         } catch (e) {
-            console.log(e);
+            console.log(e)
         }
         displayFaves()
     }
 
     removeFaveSession = async sessionId => {
         try {
-            await AsyncStorage.setItem(sessionId, 'false');
+            await AsyncStorage.setItem(sessionId, 'false')
         } catch (e) {
-            console.log(e);
+            console.log(e)
         }
         displayFaves()
     }
 
     getFaveSession = async sessionId => {
         try {
-            return 'true' === await AsyncStorage.getItem(sessionId);
+            return 'true' === await AsyncStorage.getItem(sessionId)
         } catch (e) {
-            console.log(e);
+            console.log(e)
         }
     }
 
@@ -58,5 +57,5 @@ const FavesProvider = ({ children }) => {
     );
 
 }
-export { FavesContext };
-export default FavesProvider;
+export { FavesContext }
+export default FavesProvider

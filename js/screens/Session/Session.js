@@ -28,13 +28,13 @@ const GET_SESSION = gql`
             }
         }
     }
-`;
+`
 
 const Session = ({ navigation }) => {
     const id = navigation.getParam('id')
     const { loading, error, data } = useQuery(GET_SESSION, {
         variables: { id }
-    });
+    })
     const [visible, setVisible] = useState(false)
     const toggleModal = () => setVisible(!visible)
 

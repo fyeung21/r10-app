@@ -1,6 +1,6 @@
-import React from "react";
-import { View } from "react-native";
-import Faves from "./Faves";
+import React from "react"
+import { View } from "react-native"
+import Faves from "./Faves"
 
 const FavesContainer = () => {
     return (
@@ -10,4 +10,4 @@ const FavesContainer = () => {
     )
 }
 
-export default FavesContainer;
+export default FavesContainer

@@ -1,6 +1,6 @@
-import React from "react";
-import { View } from "react-native";
-import Schedule from "./Schedule";
+import React from "react"
+import { View } from "react-native"
+import Schedule from "./Schedule"
 
 const ScheduleContainer = () => {
     return (
@@ -10,4 +10,4 @@ const ScheduleContainer = () => {
     )
 }
 
-export default ScheduleContainer;
+export default ScheduleContainer

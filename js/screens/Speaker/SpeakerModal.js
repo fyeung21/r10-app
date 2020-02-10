@@ -1,6 +1,6 @@
-import React from "react";
-import { View, ScrollView, Text, Image, TouchableOpacity, Linking, StyleSheet } from "react-native";
-import globalStyles from "../../globalStyles";
+import React from "react"
+import { View, ScrollView, Text, Image, TouchableOpacity, Linking, StyleSheet } from "react-native"
+import globalStyles from "../../globalStyles"
 
 const SpeakerModal = ({ name, bio, image, url }) => {
 
@@ -43,6 +43,6 @@ const styles = StyleSheet.create({
         marginHorizontal: 115,
         marginTop: 30
     }
-});
+})
 
-export default SpeakerModal;
+export default SpeakerModal

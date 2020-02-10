@@ -1,14 +1,14 @@
-import React from 'react';
-import { createStackNavigator } from 'react-navigation-stack';
-import { createBottomTabNavigator } from 'react-navigation-tabs';
-import Ionicons from 'react-native-vector-icons/Ionicons';
-import ScheduleScreen from '../screens/Schedule';
-import MapScreen from '../screens/Map';
-import FavesScreen from '../screens/Faves';
-import AboutScreen from '../screens/About';
-import SessionScreen from '../screens/Session';
-import SpeakerScreen from '../screens/Speaker';
-import { sharedNavigationOptions } from './config';
+import React from 'react'
+import { createStackNavigator } from 'react-navigation-stack'
+import { createBottomTabNavigator } from 'react-navigation-tabs'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import ScheduleScreen from '../screens/Schedule'
+import MapScreen from '../screens/Map'
+import FavesScreen from '../screens/Faves'
+import AboutScreen from '../screens/About'
+import SessionScreen from '../screens/Session'
+import SpeakerScreen from '../screens/Speaker'
+import { sharedNavigationOptions } from './config'
 
 const ScheduleStack = createStackNavigator({
     Schedule: ScheduleScreen,
@@ -44,7 +44,7 @@ const AboutStack = createStackNavigator({
         defaultNavigationOptions: ({ navigation }) => ({
             ...sharedNavigationOptions(navigation)
         })
-    });
+    })
 
 const TabNavigator = createBottomTabNavigator(
     {
@@ -57,7 +57,7 @@ const TabNavigator = createBottomTabNavigator(
         defaultNavigationOptions: ({ navigation }) => ({
             tabBarIcon: ({ tintColor }) => {
                 const { routeName } = navigation.state;
-                let IconComponent = Ionicons;
+                let IconComponent = Ionicons
                 let iconName;
                 if (routeName === 'Schedule') {
                     iconName = 'ios-calendar'
@@ -66,9 +66,9 @@ const TabNavigator = createBottomTabNavigator(
                 } else if (routeName === 'Faves') {
                     iconName = 'ios-heart';
                 } else if (routeName === 'About') {
-                    iconName = 'ios-information-circle';
+                    iconName = 'ios-information-circle'
                 }
-                return <IconComponent name={iconName} size={30} color={tintColor} />;
+                return <IconComponent name={iconName} size={30} color={tintColor} />
             },
         }),
         tabBarOptions: {
@@ -85,5 +85,5 @@ const TabNavigator = createBottomTabNavigator(
             }
         },
     }
-);
-export default TabNavigator;
+)
+export default TabNavigator

@@ -1,8 +1,8 @@
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
-import NavigationLayout from "./NavigationLayout";
-import SpeakerModal from "../screens/Speaker/SpeakerModal";
-import Session from "../screens/Session/Session";
+import { createAppContainer } from 'react-navigation'
+import { createStackNavigator } from 'react-navigation-stack'
+import NavigationLayout from "./NavigationLayout"
+import SpeakerModal from "../screens/Speaker/SpeakerModal"
+import Session from "../screens/Session/Session"
 
 export default createAppContainer(
     createStackNavigator(
@@ -15,4 +15,4 @@ export default createAppContainer(
             mode: 'modal',
             headerMode: 'none',
         }
-    ));
+    ))

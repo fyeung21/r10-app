@@ -4,7 +4,7 @@ import { View, ScrollView, Text, StyleSheet, TouchableOpacity, LayoutAnimation }
 const CodeofConduct = (data) => {
     const [toggle, setToggle] = useState(false);
 
-    const animate = LayoutAnimation.create(400, 'linear', 'opacity');
+    const animate = LayoutAnimation.create(400, 'linear', 'opacity')
 
     return (
         <ScrollView>
@@ -40,6 +40,6 @@ const styles = StyleSheet.create({
         marginHorizontal: 5,
         marginVertical: 10
     }
-});
+})
 
-export default CodeofConduct;
+export default CodeofConduct

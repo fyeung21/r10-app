@@ -1,6 +1,6 @@
-import React from "react";
-import { View } from "react-native";
-import Session from "./Session";
+import React from "react"
+import { View } from "react-native"
+import Session from "./Session"
 
 const SessionContainer = () => {
     return (
@@ -10,4 +10,4 @@ const SessionContainer = () => {
     )
 }
 
-export default SessionContainer;
+export default SessionContainer

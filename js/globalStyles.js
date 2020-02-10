@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native'
 
 const globalStyles = StyleSheet.create({
     container: {
@@ -60,6 +60,6 @@ const globalStyles = StyleSheet.create({
         textAlign: "center"
     }
 
-});
+})
 
-export default globalStyles;
+export default globalStyles

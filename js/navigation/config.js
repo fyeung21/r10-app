@@ -1,7 +1,7 @@
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import { Header } from 'react-navigation-stack';
-import LinearGradient from 'react-native-linear-gradient';
+import React from 'react'
+import { StyleSheet, View } from 'react-native'
+import { Header } from 'react-navigation-stack'
+import LinearGradient from 'react-native-linear-gradient'
 
 const GradientHeader = props => (
     <View style={{ backgroundColor: 'white', overflow: 'hidden' }}>
@@ -13,7 +13,7 @@ const GradientHeader = props => (
         />
         <Header {...props} />
     </View>
-);
+)
 
 export const sharedNavigationOptions = () => ({
     headerBackTitle: null,
@@ -27,4 +27,4 @@ export const sharedNavigationOptions = () => ({
         fontFamily: 'Montserrat',
         fontSize: 24
     },
-});
+})
