@@ -16,7 +16,7 @@ const SessionCard = ({ id, title, location, navigation }) => {
     return (
         <View style={globalStyles.borderBottomCont}>
             <View style={globalStyles.sessionCardCont}>
-                <TouchableOpacity onPress={() => navigation.push('Session', { id })}>
+                <TouchableOpacity onPress={() => { title === 'Lunch' || 'After Party' ? null : navigation.push('Session', { id }) }}>
                     <Text style={globalStyles.sessionCardTitle}>{title}</Text>
                     <View style={globalStyles.flex}>
                         <Text style={globalStyles.greyHeading}>{location}</Text>
