@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
     },
     modalCont: {
         backgroundColor: '#000',
-        marginTop: 80
+        paddingVertical: 30
     },
     modalHeader: {
         display: "flex",
@@ -51,7 +51,7 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontFamily: "Montserrat-Regular",
         marginHorizontal: 8,
-        marginVertical: 15,
+        marginVertical: 10,
     },
     modalTitle: {
         color: "#fff",

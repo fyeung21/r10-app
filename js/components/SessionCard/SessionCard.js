@@ -22,11 +22,11 @@ const SessionCard = ({ id, title, location, navigation }) => {
                         <Text style={globalStyles.greyHeading}>{location}</Text>
                         {faveIds && faveIds.includes(id) ? (
                             <TouchableOpacity onPress={() => removeFromFaves(id)}>
-                                <Icon name="ios-heart" size={20} color={"red"} />
+                                <Icon name="ios-heart" size={25} color={"red"} />
                             </TouchableOpacity>
                         ) : (
                                 <TouchableOpacity onPress={() => addToFaves(id)}>
-                                    <Icon name="ios-heart-empty" size={20} />
+                                    <Icon name="ios-heart-empty" size={25} />
                                 </TouchableOpacity>)}
                     </View>
                 </TouchableOpacity>

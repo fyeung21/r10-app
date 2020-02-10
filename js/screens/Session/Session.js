@@ -63,8 +63,8 @@ const Session = ({ navigation }) => {
                 <View style={globalStyles.flex}>
                     <Text style={styles.greyHeading}>{location}</Text>
                     {faveIds && faveIds.includes(sessionId) ? (
-                        <Icon name="ios-heart" size={20} color={"red"} />
-                    ) : (<Icon name="ios-heart-empty" size={20} />)}
+                        <Icon name="ios-heart" size={25} color={"red"} />
+                    ) : (<Icon name="ios-heart-empty" size={25} />)}
                 </View>
                 <Text style={styles.title}>{title}</Text>
                 <Text style={styles.startTime}>{formattedTime}</Text>
@@ -100,7 +100,7 @@ const Session = ({ navigation }) => {
                 <View style={styles.modalCont}>
                     <View style={styles.modalHeader}>
                         <TouchableOpacity onPress={toggleModal}>
-                            <Text style={styles.modalHeader}>X</Text>
+                            <Text style={styles.modalHeader}><Icon name="ios-close" size={50} /></Text>
                         </TouchableOpacity>
                         <Text style={styles.modalTitle}>About the Speaker</Text>
                     </View>

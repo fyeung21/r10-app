@@ -68,7 +68,7 @@ const TabNavigator = createBottomTabNavigator(
                 } else if (routeName === 'About') {
                     iconName = 'ios-information-circle';
                 }
-                return <IconComponent name={iconName} size={25} color={tintColor} />;
+                return <IconComponent name={iconName} size={30} color={tintColor} />;
             },
         }),
         tabBarOptions: {

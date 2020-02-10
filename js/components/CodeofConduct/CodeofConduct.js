@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { View, ScrollView, Text, StyleSheet, TouchableOpacity, LayoutAnimation } from "react-native";
+import React, { useState } from "react"
+import { View, ScrollView, Text, StyleSheet, TouchableOpacity, LayoutAnimation } from "react-native"
 
 const CodeofConduct = (data) => {
     const [toggle, setToggle] = useState(false);
@@ -14,7 +14,7 @@ const CodeofConduct = (data) => {
                     LayoutAnimation.configureNext(animate)
                 }}>
                     <Text style={styles.heading}>
-                        {data.title}
+                        {toggle ? '-' : '+'} {data.title}
                     </Text>
                 </TouchableOpacity>
                 {toggle &&
