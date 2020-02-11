@@ -1,7 +1,8 @@
 import React from 'react'
-import { StyleSheet, View } from 'react-native'
+import { StyleSheet, View, Platform } from 'react-native'
 import { Header } from 'react-navigation-stack'
 import LinearGradient from 'react-native-linear-gradient'
+import Icon from 'react-native-vector-icons/Ionicons'
 
 const GradientHeader = props => (
     <View style={{ backgroundColor: 'white', overflow: 'hidden' }}>
@@ -15,9 +16,22 @@ const GradientHeader = props => (
     </View>
 )
 
-export const sharedNavigationOptions = () => ({
+const Hamburger = ({ navigation }) => {
+    const { routeName } = navigation.state;
+    return routeName !== "Session"
+        ? (
+            <Icon style={{ marginLeft: 20 }} name="md-menu" size={25} color={'white'} onPress={navigation.openDrawer} />
+        ) : (
+            <Icon style={{ marginLeft: 20 }} name="md-arrow-round-back" size={25} color={'white'} onPress={() => navigation.goBack()} />
+        );
+}
+
+export const sharedNavigationOptions = navigation => ({
     headerBackTitle: null,
     header: props => <GradientHeader {...props} />,
+    ...Platform.select({
+        android: { headerLeft: () => <Hamburger navigation={navigation} /> }
+    }),
     headerStyle: {
         backgroundColor: 'transparent',
         height: 100

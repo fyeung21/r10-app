@@ -3,7 +3,7 @@ import { withNavigation } from "react-navigation"
 import { useQuery } from '@apollo/react-hooks'
 import { gql } from "apollo-boost"
 import { FavesContext } from '../../context/FavesContext/FavesContext'
-import { View, ScrollView, Text, Image, Modal } from "react-native"
+import { View, ScrollView, Text, Image, Modal, Platform } from "react-native"
 import { TouchableOpacity } from "react-native-gesture-handler"
 import Icon from 'react-native-vector-icons/Ionicons'
 import { SpeakerModal } from "../Speaker"
@@ -57,14 +57,44 @@ const Session = ({ navigation }) => {
 
     const formattedTime = timeFormatHelper(startTime)
 
+    const heartIcon = Platform.select({
+        ios: {
+            name: "ios-heart"
+        },
+        android: {
+            name: "md-heart"
+        }
+
+    })
+
+    const heartEmptyIcon = Platform.select({
+        ios: {
+            name: "ios-heart-empty"
+        },
+        android: {
+            name: "md-heart-empty"
+        }
+
+    })
+
+    const closeIcon = Platform.select({
+        ios: {
+            name: "ios-close"
+        },
+        android: {
+            name: "md-close"
+        }
+
+    })
+
     return (
         <ScrollView style={styles.sessionCont}>
             <View>
                 <View style={globalStyles.flex}>
                     <Text style={styles.greyHeading}>{location}</Text>
                     {faveIds && faveIds.includes(sessionId) ? (
-                        <Icon name="ios-heart" size={25} color={"red"} />
-                    ) : (<Icon name="ios-heart-empty" size={25} />)}
+                        <Icon name={heartIcon.name} size={25} color={"red"} />
+                    ) : (<Icon name={heartEmptyIcon.name} size={25} />)}
                 </View>
                 <Text style={styles.title}>{title}</Text>
                 <Text style={styles.startTime}>{formattedTime}</Text>
@@ -100,7 +130,7 @@ const Session = ({ navigation }) => {
                 <View style={styles.modalCont}>
                     <View style={styles.modalHeader}>
                         <TouchableOpacity onPress={toggleModal}>
-                            <Text style={styles.modalHeader}><Icon name="ios-close" size={50} /></Text>
+                            <Text style={styles.modalHeader}><Icon name={closeIcon.name} size={50} /></Text>
                         </TouchableOpacity>
                         <Text style={styles.modalTitle}>About the Speaker</Text>
                     </View>
